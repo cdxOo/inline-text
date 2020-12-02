@@ -7,5 +7,19 @@ module.exports = function inlineText (call_site, ...placeholder_values) {
         );
     }
 
-    return call_site.join('').replace(/\s*\n\s*/g, ' ').trim();
+    var newlines = /\s*\n\s*/g;
+
+    return (
+        call_site
+        .map((str, i) => {
+            var arg = placeholder_values[i];
+            return (
+                arg 
+                ? str + arg.replace(newlines, ' ').trim()
+                : str
+            );
+        })
+        .join('').replace(newlines, ' ')
+        .trim()
+    );
 }
