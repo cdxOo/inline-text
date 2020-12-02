@@ -1,6 +1,6 @@
 {
   "name": "@cdxoo/inline-text",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "turn multi line es6 template literal into a single line",
   "main": "src/index.js",
   "scripts": {
