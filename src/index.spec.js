@@ -18,4 +18,17 @@ describe('inline-text', () => {
         
         expect(str).to.eql('foo bar b az 2B    9S');
     })
+    
+    it('works when placeholder values is non-string', () => {
+        var baz = 42
+
+        var str = inline`
+            foo
+            bar ${baz}
+            
+            2B    9S
+        `;
+        
+        expect(str).to.eql('foo bar 42 2B    9S');
+    })
 })
